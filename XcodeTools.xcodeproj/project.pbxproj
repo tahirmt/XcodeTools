@@ -17,7 +17,7 @@
 		C893F14B2838ACB700789013 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C893F14A2838ACB700789013 /* Cocoa.framework */; };
 		C893F1502838ACB700789013 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F14F2838ACB700789013 /* SourceEditorExtension.swift */; };
 		C893F1522838ACB700789013 /* BlockCommentCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F1512838ACB700789013 /* BlockCommentCommand.swift */; };
-		C893F1572838ACB700789013 /* EditorExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C893F1482838ACB700789013 /* EditorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C893F1572838ACB700789013 /* Xcode Tools.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C893F1482838ACB700789013 /* Xcode Tools.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C893F15C2838AFD600789013 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C893F14C2838ACB700789013 /* XcodeKit.framework */; };
 		C893F15D2838AFD600789013 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C893F14C2838ACB700789013 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C893F1602838B09200789013 /* SortImportsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F15F2838B09100789013 /* SortImportsCommand.swift */; };
@@ -54,7 +54,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C893F1572838ACB700789013 /* EditorExtension.appex in Embed App Extensions */,
+				C893F1572838ACB700789013 /* Xcode Tools.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +84,7 @@
 		C893F1312838AC8800789013 /* XcodeToolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XcodeToolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C893F1352838AC8800789013 /* XcodeToolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeToolsUITests.swift; sourceTree = "<group>"; };
 		C893F1372838AC8800789013 /* XcodeToolsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeToolsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C893F1482838ACB700789013 /* EditorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EditorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C893F1482838ACB700789013 /* Xcode Tools.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Xcode Tools.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C893F14A2838ACB700789013 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C893F14C2838ACB700789013 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		C893F14F2838ACB700789013 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				C893F1162838AC8500789013 /* XcodeTools.app */,
 				C893F1272838AC8800789013 /* XcodeToolsTests.xctest */,
 				C893F1312838AC8800789013 /* XcodeToolsUITests.xctest */,
-				C893F1482838ACB700789013 /* EditorExtension.appex */,
+				C893F1482838ACB700789013 /* Xcode Tools.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -267,9 +267,9 @@
 			productReference = C893F1312838AC8800789013 /* XcodeToolsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		C893F1472838ACB700789013 /* EditorExtension */ = {
+		C893F1472838ACB700789013 /* Xcode Tools */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C893F1582838ACB700789013 /* Build configuration list for PBXNativeTarget "EditorExtension" */;
+			buildConfigurationList = C893F1582838ACB700789013 /* Build configuration list for PBXNativeTarget "Xcode Tools" */;
 			buildPhases = (
 				C893F1442838ACB700789013 /* Sources */,
 				C893F1452838ACB700789013 /* Frameworks */,
@@ -280,9 +280,9 @@
 			);
 			dependencies = (
 			);
-			name = EditorExtension;
+			name = "Xcode Tools";
 			productName = EditorExtension;
-			productReference = C893F1482838ACB700789013 /* EditorExtension.appex */;
+			productReference = C893F1482838ACB700789013 /* Xcode Tools.appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
@@ -327,7 +327,7 @@
 				C893F1152838AC8500789013 /* XcodeTools */,
 				C893F1262838AC8800789013 /* XcodeToolsTests */,
 				C893F1302838AC8800789013 /* XcodeToolsUITests */,
-				C893F1472838ACB700789013 /* EditorExtension */,
+				C893F1472838ACB700789013 /* Xcode Tools */,
 			);
 		};
 /* End PBXProject section */
@@ -417,7 +417,7 @@
 		};
 		C893F1562838ACB700789013 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C893F1472838ACB700789013 /* EditorExtension */;
+			target = C893F1472838ACB700789013 /* Xcode Tools */;
 			targetProxy = C893F1552838ACB700789013 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -759,7 +759,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C893F1582838ACB700789013 /* Build configuration list for PBXNativeTarget "EditorExtension" */ = {
+		C893F1582838ACB700789013 /* Build configuration list for PBXNativeTarget "Xcode Tools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C893F1592838ACB700789013 /* Debug */,
