@@ -1,3 +1,4 @@
 .DS_Store
 ## User settings
 xcuserdata/
+build/
