@@ -14,6 +14,13 @@
 		C893F12C2838AC8800789013 /* XcodeToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F12B2838AC8800789013 /* XcodeToolsTests.swift */; };
 		C893F1362838AC8800789013 /* XcodeToolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F1352838AC8800789013 /* XcodeToolsUITests.swift */; };
 		C893F1382838AC8800789013 /* XcodeToolsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F1372838AC8800789013 /* XcodeToolsUITestsLaunchTests.swift */; };
+		C893F14B2838ACB700789013 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C893F14A2838ACB700789013 /* Cocoa.framework */; };
+		C893F1502838ACB700789013 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F14F2838ACB700789013 /* SourceEditorExtension.swift */; };
+		C893F1522838ACB700789013 /* BlockCommentCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F1512838ACB700789013 /* BlockCommentCommand.swift */; };
+		C893F1572838ACB700789013 /* EditorExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C893F1482838ACB700789013 /* EditorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C893F15C2838AFD600789013 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C893F14C2838ACB700789013 /* XcodeKit.framework */; };
+		C893F15D2838AFD600789013 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C893F14C2838ACB700789013 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C893F1602838B09200789013 /* SortImportsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F15F2838B09100789013 /* SortImportsCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +38,39 @@
 			remoteGlobalIDString = C893F1152838AC8500789013;
 			remoteInfo = XcodeTools;
 		};
+		C893F1552838ACB700789013 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C893F10E2838AC8500789013 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C893F1472838ACB700789013;
+			remoteInfo = EditorExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C893F15B2838ACB700789013 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C893F1572838ACB700789013 /* EditorExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C893F15E2838AFD600789013 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C893F15D2838AFD600789013 /* XcodeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C893F1162838AC8500789013 /* XcodeTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +84,14 @@
 		C893F1312838AC8800789013 /* XcodeToolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XcodeToolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C893F1352838AC8800789013 /* XcodeToolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeToolsUITests.swift; sourceTree = "<group>"; };
 		C893F1372838AC8800789013 /* XcodeToolsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeToolsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C893F1482838ACB700789013 /* EditorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EditorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C893F14A2838ACB700789013 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C893F14C2838ACB700789013 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
+		C893F14F2838ACB700789013 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
+		C893F1512838ACB700789013 /* BlockCommentCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCommentCommand.swift; sourceTree = "<group>"; };
+		C893F1532838ACB700789013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C893F1542838ACB700789013 /* EditorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EditorExtension.entitlements; sourceTree = "<group>"; };
+		C893F15F2838B09100789013 /* SortImportsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortImportsCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +116,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C893F1452838ACB700789013 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C893F14B2838ACB700789013 /* Cocoa.framework in Frameworks */,
+				C893F15C2838AFD600789013 /* XcodeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +134,8 @@
 				C893F1182838AC8500789013 /* XcodeTools */,
 				C893F12A2838AC8800789013 /* XcodeToolsTests */,
 				C893F1342838AC8800789013 /* XcodeToolsUITests */,
+				C893F14E2838ACB700789013 /* EditorExtension */,
+				C893F1492838ACB700789013 /* Frameworks */,
 				C893F1172838AC8500789013 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +146,7 @@
 				C893F1162838AC8500789013 /* XcodeTools.app */,
 				C893F1272838AC8800789013 /* XcodeToolsTests.xctest */,
 				C893F1312838AC8800789013 /* XcodeToolsUITests.xctest */,
+				C893F1482838ACB700789013 /* EditorExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +188,27 @@
 			path = XcodeToolsUITests;
 			sourceTree = "<group>";
 		};
+		C893F1492838ACB700789013 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C893F14A2838ACB700789013 /* Cocoa.framework */,
+				C893F14C2838ACB700789013 /* XcodeKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C893F14E2838ACB700789013 /* EditorExtension */ = {
+			isa = PBXGroup;
+			children = (
+				C893F14F2838ACB700789013 /* SourceEditorExtension.swift */,
+				C893F1512838ACB700789013 /* BlockCommentCommand.swift */,
+				C893F15F2838B09100789013 /* SortImportsCommand.swift */,
+				C893F1532838ACB700789013 /* Info.plist */,
+				C893F1542838ACB700789013 /* EditorExtension.entitlements */,
+			);
+			path = EditorExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,10 +219,12 @@
 				C893F1122838AC8500789013 /* Sources */,
 				C893F1132838AC8500789013 /* Frameworks */,
 				C893F1142838AC8500789013 /* Resources */,
+				C893F15B2838ACB700789013 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C893F1562838ACB700789013 /* PBXTargetDependency */,
 			);
 			name = XcodeTools;
 			productName = XcodeTools;
@@ -185,6 +267,24 @@
 			productReference = C893F1312838AC8800789013 /* XcodeToolsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C893F1472838ACB700789013 /* EditorExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C893F1582838ACB700789013 /* Build configuration list for PBXNativeTarget "EditorExtension" */;
+			buildPhases = (
+				C893F1442838ACB700789013 /* Sources */,
+				C893F1452838ACB700789013 /* Frameworks */,
+				C893F1462838ACB700789013 /* Resources */,
+				C893F15E2838AFD600789013 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EditorExtension;
+			productName = EditorExtension;
+			productReference = C893F1482838ACB700789013 /* EditorExtension.appex */;
+			productType = "com.apple.product-type.xcode-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,6 +306,9 @@
 						CreatedOnToolsVersion = 13.4;
 						TestTargetID = C893F1152838AC8500789013;
 					};
+					C893F1472838ACB700789013 = {
+						CreatedOnToolsVersion = 13.4;
+					};
 				};
 			};
 			buildConfigurationList = C893F1112838AC8500789013 /* Build configuration list for PBXProject "XcodeTools" */;
@@ -224,6 +327,7 @@
 				C893F1152838AC8500789013 /* XcodeTools */,
 				C893F1262838AC8800789013 /* XcodeToolsTests */,
 				C893F1302838AC8800789013 /* XcodeToolsUITests */,
+				C893F1472838ACB700789013 /* EditorExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +350,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C893F12F2838AC8800789013 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C893F1462838ACB700789013 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -281,6 +392,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C893F1442838ACB700789013 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C893F1502838ACB700789013 /* SourceEditorExtension.swift in Sources */,
+				C893F1522838ACB700789013 /* BlockCommentCommand.swift in Sources */,
+				C893F1602838B09200789013 /* SortImportsCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -293,6 +414,11 @@
 			isa = PBXTargetDependency;
 			target = C893F1152838AC8500789013 /* XcodeTools */;
 			targetProxy = C893F1322838AC8800789013 /* PBXContainerItemProxy */;
+		};
+		C893F1562838ACB700789013 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C893F1472838ACB700789013 /* EditorExtension */;
+			targetProxy = C893F1552838ACB700789013 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -413,6 +539,7 @@
 		C893F13C2838AC8800789013 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = XcodeTools/XcodeTools.entitlements;
@@ -440,6 +567,7 @@
 		C893F13D2838AC8800789013 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = XcodeTools/XcodeTools.entitlements;
@@ -536,6 +664,62 @@
 			};
 			name = Release;
 		};
+		C893F1592838ACB700789013 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = EditorExtension/EditorExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U8KS828P9Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EditorExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Xcode Tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.tahirmt.XcodeTools.EditorExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C893F15A2838ACB700789013 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = EditorExtension/EditorExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U8KS828P9Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EditorExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Xcode Tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.tahirmt.XcodeTools.EditorExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -571,6 +755,15 @@
 			buildConfigurations = (
 				C893F1422838AC8800789013 /* Debug */,
 				C893F1432838AC8800789013 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C893F1582838ACB700789013 /* Build configuration list for PBXNativeTarget "EditorExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C893F1592838ACB700789013 /* Debug */,
+				C893F15A2838ACB700789013 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
