@@ -42,87 +42,97 @@ class BlockCommentCommand: NSObject, XCSourceEditorCommand {
         let line: Int
         let value: String
     }
-    
-    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
-        defer { completionHandler(nil) }
 
-        let selections = invocation.buffer.selections.compactMap { $0 as? XCSourceTextRange }
+    func perform(with invocation: XCSourceEditorCommandInvocation) async throws {
+        let outputLines = await process(invocation: invocation)
 
+        invocation.buffer.lines.removeAllObjects()
+        invocation.buffer.lines.addObjects(from: outputLines)
+    }
+
+    private func process(invocation: XCSourceEditorCommandInvocation) async -> [String] {
         let lines = invocation.buffer.lines
-        var operations = [Operation]()
+        let selections = invocation.buffer.selections
 
-        selections.forEach { selection in
-            // check if the previous line is a block comment start
+        let handle = Task { () -> [String] in
+            let lines = lines.compactMap { $0 as? String }
 
-            let startLine = lines[safe: selection.start.line] as? String
-            let endLine = lines[safe: selection.end.line] as? String
+            let selections = selections.compactMap { $0 as? XCSourceTextRange }
+            var operations = [Operation]()
 
-            let previousLine = lines[safe: selection.start.line-1] as? String
-            let nextLine = lines[safe: selection.end.line+1] as? String
+            selections.forEach { selection in
+                // check if the previous line is a block comment start
 
-            if let previousLine = previousLine, let nextLine = nextLine, previousLine.isBeginningOfBlockComment, nextLine.isEndOfBlockComment {
-                os_log("remove previous and next lines", type: .debug)
-                operations.append(Operation(kind: .remove, line: selection.start.line-1, value: previousLine))
-                operations.append(Operation(kind: .remove, line: selection.end.line+1, value: nextLine))
-            }
-            else if let startLine = startLine, let endLine = endLine, startLine.isBeginningOfBlockComment, endLine.isEndOfBlockComment {
-                os_log("remove begin and end", type: .debug)
-                operations.append(Operation(kind: .remove, line: selection.start.line, value: startLine))
-                operations.append(Operation(kind: .remove, line: selection.end.line, value: endLine))
-            }
-            else if let previousLine = previousLine, let endLine = endLine, previousLine.isBeginningOfBlockComment, endLine.isEndOfBlockComment {
-                os_log("remove previous end end", type: .debug)
-                operations.append(Operation(kind: .remove, line: selection.start.line-1, value: previousLine))
-                operations.append(Operation(kind: .remove, line: selection.end.line, value: endLine))
-            }
-            else if let startLine = startLine, let nextLine = nextLine, startLine.isBeginningOfBlockComment, nextLine.isEndOfBlockComment {
-                os_log("remove begin and next", type: .debug)
-                operations.append(Operation(kind: .remove, line: selection.start.line, value: startLine))
-                operations.append(Operation(kind: .remove, line: selection.end.line+1, value: nextLine))
-            }
-            else if var startLine = startLine, var endLine = endLine, startLine.startsInBlockComment && endLine.endsInBlockComment {
-                os_log("Remove start and end", type: .debug)
-                if let range = startLine.range(of: "/*") {
-                    startLine.replaceSubrange(range, with: "")
-                    operations.append(Operation(kind: .replace, line: selection.start.line, value: startLine))
+                let startLine = lines[safe: selection.start.line]
+                let endLine = lines[safe: selection.end.line]
+
+                let previousLine = lines[safe: selection.start.line-1]
+                let nextLine = lines[safe: selection.end.line+1]
+
+                if let previousLine = previousLine, let nextLine = nextLine, previousLine.isBeginningOfBlockComment, nextLine.isEndOfBlockComment {
+                    os_log("remove previous and next lines", type: .debug)
+                    operations.append(Operation(kind: .remove, line: selection.start.line-1, value: previousLine))
+                    operations.append(Operation(kind: .remove, line: selection.end.line+1, value: nextLine))
                 }
+                else if let startLine = startLine, let endLine = endLine, startLine.isBeginningOfBlockComment, endLine.isEndOfBlockComment {
+                    os_log("remove begin and end", type: .debug)
+                    operations.append(Operation(kind: .remove, line: selection.start.line, value: startLine))
+                    operations.append(Operation(kind: .remove, line: selection.end.line, value: endLine))
+                }
+                else if let previousLine = previousLine, let endLine = endLine, previousLine.isBeginningOfBlockComment, endLine.isEndOfBlockComment {
+                    os_log("remove previous end end", type: .debug)
+                    operations.append(Operation(kind: .remove, line: selection.start.line-1, value: previousLine))
+                    operations.append(Operation(kind: .remove, line: selection.end.line, value: endLine))
+                }
+                else if let startLine = startLine, let nextLine = nextLine, startLine.isBeginningOfBlockComment, nextLine.isEndOfBlockComment {
+                    os_log("remove begin and next", type: .debug)
+                    operations.append(Operation(kind: .remove, line: selection.start.line, value: startLine))
+                    operations.append(Operation(kind: .remove, line: selection.end.line+1, value: nextLine))
+                }
+                else if var startLine = startLine, var endLine = endLine, startLine.startsInBlockComment && endLine.endsInBlockComment {
+                    os_log("Remove start and end", type: .debug)
+                    if let range = startLine.range(of: "/*") {
+                        startLine.replaceSubrange(range, with: "")
+                        operations.append(Operation(kind: .replace, line: selection.start.line, value: startLine))
+                    }
 
-                if let range = endLine.range(of: "*/") {
-                    endLine.replaceSubrange(range, with: "")
-                    operations.append(Operation(kind: .replace, line: selection.end.line, value: endLine))
+                    if let range = endLine.range(of: "*/") {
+                        endLine.replaceSubrange(range, with: "")
+                        operations.append(Operation(kind: .replace, line: selection.end.line, value: endLine))
+                    }
+                }
+                else {
+                    os_log("insert block comment", type: .debug)
+                    // comment block
+                    operations.append(Operation(kind: .insert, line: selection.start.line, value: "/*"))
+                    operations.append(Operation(kind: .insert, line: selection.end.line+1, value: "*/"))
                 }
             }
-            else {
-                os_log("insert block comment", type: .debug)
-                // comment block
-                operations.append(Operation(kind: .insert, line: selection.start.line, value: "/*"))
-                operations.append(Operation(kind: .insert, line: selection.end.line+1, value: "*/"))
+
+            // perform operations
+            var outputLines = lines
+            var indexOffset = 0
+
+            operations.forEach { operation in
+                switch operation.kind {
+                case .insert:
+                    outputLines.insert(operation.value, at: operation.line + indexOffset)
+                    indexOffset += 1
+                case .replace:
+                    outputLines[operation.line] = operation.value
+                case .remove:
+                    let indexToRemove = operation.line + indexOffset
+                    if outputLines.indices ~= indexToRemove {
+                        outputLines.remove(at: indexToRemove)
+                    }
+                    indexOffset -= 1
+                }
             }
+
+            return outputLines
         }
 
-        // perform operations
-        var outputLines = lines.compactMap { $0 as? String }
-        var indexOffset = 0
-
-        operations.forEach { operation in
-            switch operation.kind {
-            case .insert:
-                outputLines.insert(operation.value, at: operation.line + indexOffset)
-                indexOffset += 1
-            case .replace:
-                outputLines[operation.line] = operation.value
-            case .remove:
-                let indexToRemove = operation.line + indexOffset
-                if outputLines.indices ~= indexToRemove {
-                    outputLines.remove(at: indexToRemove)
-                }
-                indexOffset -= 1
-            }
-        }
-
-        // apply the change
-        lines.removeAllObjects()
-        lines.addObjects(from: outputLines)
+        return await handle.value
     }
 }
 
@@ -144,8 +154,8 @@ extension String {
     }
 }
 
-extension NSMutableArray {
-    subscript(safe index: Int) -> Element? {
-        index < count ? self[index] : nil
+public extension Collection {
+    subscript(safe index: Index) -> Element? {
+        indices.contains(index) ? self[index] : nil
     }
 }
