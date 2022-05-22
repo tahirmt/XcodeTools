@@ -24,6 +24,54 @@
 					<key>XCSourceEditorCommandName</key>
 					<string>Sort Imports</string>
 				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).UppercaseCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).UppercaseCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Uppercase</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).LowercaseCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).LowercaseCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Lowercase</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).CamelCaseCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).CamelCaseCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Camel case</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).TitleCaseCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).TitleCaseCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Title case</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).CamelCaseIgnoreCapitalCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).CamelCaseIgnoreCapitalCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Camel Case Ignoring Capital Letters</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).TitleCaseIgnoreCapitalCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).TitleCaseIgnoreCapitalCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Title Case Ignoring Capital Letters</string>
+				</dict>
 			</array>
 			<key>XCSourceEditorExtensionPrincipalClass</key>
 			<string>$(PRODUCT_MODULE_NAME).SourceEditorExtension</string>

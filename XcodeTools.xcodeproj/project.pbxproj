@@ -21,6 +21,12 @@
 		C893F15C2838AFD600789013 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C893F14C2838ACB700789013 /* XcodeKit.framework */; };
 		C893F15D2838AFD600789013 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C893F14C2838ACB700789013 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C893F1602838B09200789013 /* SortImportsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C893F15F2838B09100789013 /* SortImportsCommand.swift */; };
+		C89F1F7F28394CEA00E31013 /* TitleCaseIgnoreCapitalCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89F1F7E28394CE600E31013 /* TitleCaseIgnoreCapitalCommand.swift */; };
+		C89F1F8028394CEA00E31013 /* CamelCaseIgnoreCapitalCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89F1F7D28394CE600E31013 /* CamelCaseIgnoreCapitalCommand.swift */; };
+		C8F56A8E28393E0B00E039C2 /* UppercaseCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F56A8D28393E0B00E039C2 /* UppercaseCommand.swift */; };
+		C8F56A922839489300E039C2 /* TitleCaseCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F56A8F2839489300E039C2 /* TitleCaseCommand.swift */; };
+		C8F56A932839489300E039C2 /* LowercaseCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F56A902839489300E039C2 /* LowercaseCommand.swift */; };
+		C8F56A942839489300E039C2 /* CamelCaseCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F56A912839489300E039C2 /* CamelCaseCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +98,12 @@
 		C893F1532838ACB700789013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C893F1542838ACB700789013 /* EditorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EditorExtension.entitlements; sourceTree = "<group>"; };
 		C893F15F2838B09100789013 /* SortImportsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortImportsCommand.swift; sourceTree = "<group>"; };
+		C89F1F7D28394CE600E31013 /* CamelCaseIgnoreCapitalCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamelCaseIgnoreCapitalCommand.swift; sourceTree = "<group>"; };
+		C89F1F7E28394CE600E31013 /* TitleCaseIgnoreCapitalCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCaseIgnoreCapitalCommand.swift; sourceTree = "<group>"; };
+		C8F56A8D28393E0B00E039C2 /* UppercaseCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UppercaseCommand.swift; sourceTree = "<group>"; };
+		C8F56A8F2839489300E039C2 /* TitleCaseCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCaseCommand.swift; sourceTree = "<group>"; };
+		C8F56A902839489300E039C2 /* LowercaseCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowercaseCommand.swift; sourceTree = "<group>"; };
+		C8F56A912839489300E039C2 /* CamelCaseCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamelCaseCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +215,12 @@
 				C893F14F2838ACB700789013 /* SourceEditorExtension.swift */,
 				C893F1512838ACB700789013 /* BlockCommentCommand.swift */,
 				C893F15F2838B09100789013 /* SortImportsCommand.swift */,
+				C8F56A8D28393E0B00E039C2 /* UppercaseCommand.swift */,
+				C8F56A912839489300E039C2 /* CamelCaseCommand.swift */,
+				C89F1F7D28394CE600E31013 /* CamelCaseIgnoreCapitalCommand.swift */,
+				C89F1F7E28394CE600E31013 /* TitleCaseIgnoreCapitalCommand.swift */,
+				C8F56A902839489300E039C2 /* LowercaseCommand.swift */,
+				C8F56A8F2839489300E039C2 /* TitleCaseCommand.swift */,
 				C893F1532838ACB700789013 /* Info.plist */,
 				C893F1542838ACB700789013 /* EditorExtension.entitlements */,
 			);
@@ -396,7 +414,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8F56A942839489300E039C2 /* CamelCaseCommand.swift in Sources */,
+				C8F56A8E28393E0B00E039C2 /* UppercaseCommand.swift in Sources */,
 				C893F1502838ACB700789013 /* SourceEditorExtension.swift in Sources */,
+				C8F56A922839489300E039C2 /* TitleCaseCommand.swift in Sources */,
+				C89F1F8028394CEA00E31013 /* CamelCaseIgnoreCapitalCommand.swift in Sources */,
+				C8F56A932839489300E039C2 /* LowercaseCommand.swift in Sources */,
+				C89F1F7F28394CEA00E31013 /* TitleCaseIgnoreCapitalCommand.swift in Sources */,
 				C893F1522838ACB700789013 /* BlockCommentCommand.swift in Sources */,
 				C893F1602838B09200789013 /* SortImportsCommand.swift in Sources */,
 			);
